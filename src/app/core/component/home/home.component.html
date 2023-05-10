@@ -1,0 +1,16 @@
+<div class="container">
+  <div fxLayoutAlign="end end">
+    <input class="search" placeholder="search" [(ngModel)]="searchTitle" (keyup)="search()">
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around">
+    <div class="card" *ngFor="let item of searchItems">
+      <div><span>{{item.Year}}</span></div>
+      <img src="{{item.Poster !== 'N/A'? item.Poster:'https://via.placeholder.com/400'}}">
+      <div fxLayoutAlign="space-between center"><span>{{item.Type}}</span><span>{{item.Title}}</span></div>
+    </div>
+
+  </div>
+  <div *ngIf="!searchItems" class="noMovie">
+    <h1>movie no found</h1>
+  </div>
+</div>
